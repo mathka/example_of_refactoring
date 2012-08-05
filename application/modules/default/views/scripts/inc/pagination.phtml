@@ -1,0 +1,13 @@
+<?php if ($this->count) { ?>
+	<p>
+	<?php for ($i=1; $i<=$this->count; $i++) { ?>
+	    <!-- Numbered page links -->
+	    <?php if ($i != $this->page): ?>
+	        <!-- Name of anchor consists columnn ID, number defining the sort order and number of page  -->
+	        <?php echo $this->coreAnchor('#', $i, array('name'=>'a_'.$this->col.'_'.$this->sort.'_'.$i)); ?>
+	    <?php else: ?>
+	        <?php echo $this->page; ?>
+	    <?php endif; ?>
+	<?php } ?>
+	</p>
+<?php } ?>

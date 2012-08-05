@@ -1,0 +1,22 @@
+<?php echo $this->render($this->js); ?>
+<?php if (isset($this->result)) { ?>
+<table>
+    <thead>
+        <tr>
+            <th>Klucz <a name="a_1_2" href="#">&#8593;</a> <a name="a_1_1" href="#">&#8595;</a></th>
+            <th>Wartość <a name="a_2_2" href="#">&#8593;</a> <a name="a_2_1" href="#">&#8595;</a></th>    
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->result as $key => $value){ ?>
+        <tr>
+            <td><?php echo $value['d_key']; ?></td>
+            <td><?php echo $value['d_value']; ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+<br />
+<hr />
+<?php echo $this->render('inc/pagination.phtml') ?>
+<?php } ?>

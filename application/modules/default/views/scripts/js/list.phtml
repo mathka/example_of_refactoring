@@ -1,0 +1,18 @@
+<script type="text/javascript">
+$( document ).ready( function(){
+
+    // This method sorts results
+    $( "a[name^=a_]" ).click( function(){
+        // Gets id columns to sorting
+        var $brokenstring = ($(this).attr('name').split('_'));
+        var $id = Number($brokenstring[1]);
+        var $sort = Number($brokenstring[2]) ? Number($brokenstring[2]) : 1;
+        var $page = Number($brokenstring[3]) ? Number($brokenstring[3]) : 1;
+        $.get( "/index/ajaxlist",  { col: $id, sort: $sort, page: $page } , function( txt ){
+            $( "#result" ).html( txt );
+        });
+        return false;
+    });
+        
+});
+</script>

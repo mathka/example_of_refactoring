@@ -1,0 +1,64 @@
+/* CSS Document */
+
+* {
+    margin : 0;
+    padding : 0;
+}
+html, input, textarea, select {
+    font-family : Georgia, 'Times New Roman';
+    font-size : 11px;
+    line-height : 20px;
+}
+body {
+    background : #000000 url(../images/body_bg.jpg) top left repeat-x;
+    color : #FFF0BB;
+    /*padding-bottom: 15px;*/
+}
+h1, h2, h3, h4 {
+    color: #850101;
+}
+ul, ul.li {
+    list-style-type : none;
+    margin : 0;
+    padding : 0;
+}
+img {
+    border : none;
+}
+a {
+    color : #FFF0B1;
+    text-decoration : underline;
+}
+a:hover {
+    text-decoration : underline;
+}
+.clear {
+    clear : both;
+}
+.left {
+    float : left;
+}
+.right {
+    float : right;
+}
+.bold {
+    font-weight: bold;
+}
+th {
+	background : #FFF0BB;
+    color : #000000;
+}
+th 
+a {
+    color : #550101;
+}
+td {
+	padding: 2px 50px 2px 10px;
+}
+/* PAGE */
+
+#page {
+    background : transparent;
+    margin : auto;
+    width : 502px;
+}

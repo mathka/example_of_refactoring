@@ -1,0 +1,26 @@
+<script type="text/javascript">
+$( document ).ready( function(){
+
+    // Loads first page of dictionary
+    function getWordList(){
+        $( "#ajax_loader").show();
+        $.get( "/index/ajaxlist",  { } , function( txt ){
+            $( "#result" ).html( txt );
+            $( "#ajax_loader").hide();
+        });
+        return false;
+    }
+    
+    getWordList();
+
+    // Sends request with uses AJAX
+    $( "#send" ).click( function(){
+        var search = $("#search").val();
+        $.post( "/index/ajaxsearch",  { search: search } , function( txt ){
+            $( "#result" ).html( txt );
+        });
+        return false;
+    });
+    
+});
+</script>

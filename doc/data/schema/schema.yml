@@ -1,0 +1,20 @@
+Dictionary:
+  tableName: dictionary
+  columns:
+    d_id:
+      type: integer(4)
+      unsigned: 1
+      primary: true
+      autoincrement: true
+    d_key:
+      type: string(50)
+      fixed: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    d_value:
+      type: string(50)
+      fixed: false
+      primary: false
+      notnull: true
+      autoincrement: false
