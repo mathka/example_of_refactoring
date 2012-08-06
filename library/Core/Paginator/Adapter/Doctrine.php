@@ -3,10 +3,8 @@ require_once '/../library/Zend/Paginator/Adapter/Interface.php';
 
 /**
  * Doctrine Adapter for Zend_Paginator
- *
  */
-class Core_Paginator_Adapter_Doctrine implements Zend_Paginator_Adapter_Interface
-{
+class Core_Paginator_Adapter_Doctrine implements Zend_Paginator_Adapter_Interface {
     /**
      * Name of the row count column
      *
@@ -33,8 +31,7 @@ class Core_Paginator_Adapter_Doctrine implements Zend_Paginator_Adapter_Interfac
      *
      * @param Doctrine_Query $query The select query
      */
-    public function __construct(Doctrine_Query $query)
-    {
+    public function __construct(Doctrine_Query $query) {
         $this->_query = $query;
     }
 
@@ -46,9 +43,7 @@ class Core_Paginator_Adapter_Doctrine implements Zend_Paginator_Adapter_Interfac
      * @return Zend_Paginator_Adapter_Doctrine_Query $this
      * @throws Zend_Paginator_Exception
      */
-    public function setRowCount($rowCount)
-    {
-    }
+    public function setRowCount($rowCount) {}
 
     /**
      * Returns an array of items for a page.
@@ -57,8 +52,7 @@ class Core_Paginator_Adapter_Doctrine implements Zend_Paginator_Adapter_Interfac
      * @param  integer $itemCountPerPage Number of items per page
      * @return array
      */
-    public function getItems($offset, $itemCountPerPage)
-    {
+    public function getItems($offset, $itemCountPerPage) {
         return $this->_query->offset($offset)->limit($itemCountPerPage)->fetchArray();
     }
 
@@ -67,8 +61,7 @@ class Core_Paginator_Adapter_Doctrine implements Zend_Paginator_Adapter_Interfac
      *
      * @return integer
      */
-    public function count()
-    {
+    public function count() {
         return $this->_query->count();
     }
 }

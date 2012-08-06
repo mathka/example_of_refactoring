@@ -1,6 +1,6 @@
 <?php if ($this->notEmptyMessages !== NULL) { ?>
 <div class="content2">
-	<?php if (!empty($this->messages)){ ?>
+	<?php if (!empty($this->messages)) { ?>
 		<p class="success">
 		<img alt="" src="/img/icons/tick.png"/>
 		<?php foreach ($this->messages as $message) { ?> 
@@ -9,7 +9,7 @@
 		</p>
 	<?php } ?>
 	
-	<?php if (!empty($this->warnings)){ ?>
+	<?php if (!empty($this->warnings)) { ?>
 		<p class="notice">
 		<img alt="" src="/img/icons/information.png"/>
 		<?php foreach ($this->warnings as $warning) { ?> 
@@ -18,7 +18,7 @@
 		</p>
 	<?php } ?>
 	
-	<?php if (!empty($this->errors)){ ?>
+	<?php if (!empty($this->errors)) { ?>
 		<p class="error">
 		<img alt="" src="/img/icons/cross.png" />
 		<?php foreach ($this->errors as $error) { ?> 

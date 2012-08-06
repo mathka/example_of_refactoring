@@ -1,6 +1,5 @@
 <?php
-class Core_Errors_Handler 
-{
+class Core_Errors_Handler {
 	static $translateErrorCodes = array(
 		1		=> 'E_ERROR',
 		2		=> 'E_WARNING',
@@ -28,11 +27,8 @@ class Core_Errors_Handler
 		'library/Zend/Autoloader.php'
 	);
 		
-	static public function handle($errNo, $errStr, $errFile, $errContext) 
-	{
-		/**
-		 * exclude ignored files
-		 */
+	static public function handle($errNo, $errStr, $errFile, $errContext) {
+		//exclude ignored files
 		if(!empty(self::$ignoreFilesErrors)){
 			foreach(self::$ignoreFilesErrors as $val){
 				if(substr_count($errFile, $val)){
@@ -43,14 +39,11 @@ class Core_Errors_Handler
 		
 		self::_saveToFile($errNo, $errStr, $errFile, $errContext);
 		
-		/**
-		 * emails disabled untill fixing soft...
-		 */
+		//emails disabled untill fixing soft
 		self::_sendEMail($errNo, $errStr, $errFile, $errContext);
 	}
 	
-	static private function _saveToFile($errNo, $errStr, $errFile, $errContext)
-	{
+	static private function _saveToFile($errNo, $errStr, $errFile, $errContext) {
 		$outFile 	= rtrim(self::$logsPath, '/').'/'.date('Y-m-d').'.txt';
 		$errorTxt 	= sprintf(
 			'%s (%-15s) %s #%u: %s',
@@ -61,7 +54,7 @@ class Core_Errors_Handler
 			$errStr
 		);
 		$pathInfo = pathinfo($outFile);
-		if(!is_dir($pathInfo['dirname'])){
+		if (!is_dir($pathInfo['dirname'])) {
 			mkdir($pathInfo['dirname'], 0777, true);
 		}	
 		$fp = fopen($outFile, 'a');
@@ -69,8 +62,7 @@ class Core_Errors_Handler
 		fclose($fp);
 	}
 	
-	static private function _sendEMail($errNo, $errStr, $errFile, $errContext)
-	{
+	static private function _sendEMail($errNo, $errStr, $errFile, $errContext) {
 		$errorTxt 	= sprintf(
 		  '(%-15s) %s'."\n".'%s #%u:'."\n".'%s',
 		  self::$translateErrorCodes[$errNo],
@@ -87,10 +79,8 @@ class Core_Errors_Handler
     	$mail->setBodyHtml($errorTxt);
         try {
         	$mail->send();
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
         	self::_saveToFile(16, 'mail_error', __FILE__, $e);
         }
 	}
 }
-?>

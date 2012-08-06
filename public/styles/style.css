@@ -6,13 +6,12 @@
 }
 html, input, textarea, select {
     font-family : Georgia, 'Times New Roman';
-    font-size : 11px;
-    line-height : 20px;
+    font-size : 16px;
+    line-height : 25px;
 }
 body {
-    background : #000000 url(../images/body_bg.jpg) top left repeat-x;
+    background : #000000;
     color : #FFF0BB;
-    /*padding-bottom: 15px;*/
 }
 h1, h2, h3, h4 {
     color: #850101;
